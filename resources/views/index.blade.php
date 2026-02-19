@@ -113,8 +113,8 @@
                 <div class="swiper-slide">
                     <div class="tmp-banner-area bg_image-1 bg_image banner-one-height-control tmp-section-gap">
                         <div class="shape-image-banner-one">
-                            <img src="{{ asset('assets/images/banner/shape/01.png') }}" alt="banner" class="one">
-                            <img src="{{ asset('assets/images/banner/shape/02.png') }}" alt="banner" class="two">
+                            <!-- <img src="{{ asset('assets/images/banner/shape/01.png') }}" alt="banner" class="one">
+                            <img src="{{ asset('assets/images/banner/shape/02.png') }}" alt="banner" class="two"> -->
                             <img src="{{ asset('assets/images/banner/shape/03.png') }}" alt="banner" class="three">
                         </div>
                         <div class="container">
@@ -157,8 +157,8 @@
                  <div class="swiper-slide">
                     <div class="tmp-banner-area bg_image-2 bg_image banner-one-height-control tmp-section-gap">
                          <div class="shape-image-banner-one">
-                            <img src="{{ asset('assets/images/banner/shape/01.png') }}" alt="banner" class="one">
-                            <img src="{{ asset('assets/images/banner/shape/02.png') }}" alt="banner" class="two">
+                            <!-- <img src="{{ asset('assets/images/banner/shape/01.png') }}" alt="banner" class="one">
+                            <img src="{{ asset('assets/images/banner/shape/02.png') }}" alt="banner" class="two"> -->
                              <img src="{{ asset('assets/images/banner/shape/03.png') }}" alt="banner" class="three">
                         </div>
                          <div class="container">
