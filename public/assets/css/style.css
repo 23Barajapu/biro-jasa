@@ -61,22 +61,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 :root {
-  --color-primary: #E42032;
-  --color-secondary: #1273EB;
-  --color-secondary-alt: #1274eb7f;
-  --color-purple: #4A11EB;
+  --color-primary: #7B2D8E;
+  --color-secondary: #9B59B6;
+  --color-secondary-alt: #9B59B67f;
+  --color-purple: #6C3483;
   --color-gray: #f6f6f6;
   --color-gray-2: #f5f8fa;
-  --color-subtitle: #f9004d;
+  --color-subtitle: #9B59B6;
   --background-color-1: #24243557;
   --background-color-2: #13131d;
   --background-color-3: #151521;
   --background-color-4: #242435;
-  --background-color-5: #EDF5FF;
-  --gradient-one: linear-gradient(to right bottom, #E42032, #1273EB);
-  --gradient-two: linear-gradient(to right, #ED145B, #4A11EB);
-  --gradient-three: linear-gradient(to right, #03041c, #0612b3);
-  --text-gradient-one: linear-gradient(to right, #E42032, #4A11EB);
+  --background-color-5: #F3E5F5;
+  --gradient-one: linear-gradient(to right bottom, #7B2D8E, #9B59B6);
+  --gradient-two: linear-gradient(to right, #8E44AD, #6C3483);
+  --gradient-three: linear-gradient(to right, #1a0530, #6C3483);
+  --text-gradient-one: linear-gradient(to right, #7B2D8E, #6C3483);
   --color-heading: #03041C;
   --color-body: #6A6C71;
   --color-dark: #1d1d1d;
@@ -146,7 +146,7 @@ html {
   font-size: 10px;
   overflow: hidden;
   overflow-y: auto;
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth !important;
 }
 
 body {
