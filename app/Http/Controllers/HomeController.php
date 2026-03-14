@@ -39,4 +39,9 @@ class HomeController extends Controller
         }
         return view('index'); // Fallback
     }
+
+    public function balikNama()
+    {
+        return view('admin.services.balik-nama');
+    }
 }

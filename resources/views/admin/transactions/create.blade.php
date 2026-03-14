@@ -9,21 +9,25 @@
         --bj-secondary: #002d72;
         --bj-accent: #ffb800;
     }
+
     .premium-card {
         border: none;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s ease;
     }
+
     .premium-card:hover {
         transform: translateY(-5px);
     }
+
     .card-header-premium {
         background: linear-gradient(135deg, var(--bj-primary), var(--bj-secondary));
         color: white;
         border-radius: 15px 15px 0 0 !important;
         padding: 1.25rem;
     }
+
     .form-label-premium {
         font-weight: 600;
         color: #444;
@@ -32,16 +36,19 @@
         align-items: center;
         gap: 8px;
     }
+
     .form-control-premium {
         border-radius: 10px;
         padding: 0.75rem 1rem;
         border: 2px solid #edf2f7;
         transition: all 0.3s ease;
     }
+
     .form-control-premium:focus {
         border-color: var(--bj-primary);
         box-shadow: 0 0 0 4px rgba(0, 70, 175, 0.1);
     }
+
     .profit-card {
         background: #f8fafc;
         border: 2px dashed #e2e8f0;
@@ -50,6 +57,7 @@
         position: relative;
         overflow: hidden;
     }
+
     .profit-card::before {
         content: '';
         position: absolute;
@@ -59,10 +67,12 @@
         height: 100%;
         background: var(--bj-primary);
     }
+
     #profit_display {
         font-size: 2.5rem;
         letter-spacing: -1px;
     }
+
     .badge-icon {
         width: 35px;
         height: 35px;
@@ -70,7 +80,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 8px;
-        background: rgba(255,255,255,0.2);
+        background: rgba(255, 255, 255, 0.2);
     }
 </style>
 @endsection
@@ -183,7 +193,7 @@
                                 <select name="region_id" id="region_id" class="form-select form-control-premium @error('region_id') is-invalid @enderror" required>
                                     <option value="">-- Pilih Wilayah --</option>
                                     @foreach($regions as $region)
-                                        <option value="{{ $region->id }}" data-price="{{ $region->base_price }}">{{ $region->name }}</option>
+                                    <option value="{{ $region->id }}" data-price="{{ $region->base_price }}">{{ $region->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -236,12 +246,12 @@
         const modal = parseFloat(modalInput.value) || 0;
         const jual = parseFloat(jualInput.value) || 0;
         const profit = jual - modal;
-        
+
         profitDisplay.innerText = 'Rp ' + profit.toLocaleString('id-ID');
-        
-        if(profit < 0) {
+
+        if (profit < 0) {
             profitDisplay.className = 'fw-bold text-danger mb-0';
-        } else if(profit > 0) {
+        } else if (profit > 0) {
             profitDisplay.className = 'fw-bold text-success mb-0';
         } else {
             profitDisplay.className = 'fw-bold text-primary mb-0';
@@ -250,12 +260,12 @@
 
     regionSelect.addEventListener('change', function() {
         const selectedOption = this.options[this.selectedIndex];
-        if(selectedOption.value) {
+        if (selectedOption.value) {
             const basePrice = selectedOption.getAttribute('data-price');
             // SEKARANG MASUK KE MODAL SESUAI PERMINTAAN USER
             modalInput.value = basePrice;
             calculateProfit();
-            
+
             // Add subtle animation to modal input
             modalInput.classList.add('bg-warning-subtle');
             setTimeout(() => modalInput.classList.remove('bg-warning-subtle'), 500);

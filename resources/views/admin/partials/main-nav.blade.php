@@ -28,7 +28,7 @@
                     <span class="nav-icon">
                         <i class="ri-dashboard-2-line"></i>
                     </span>
-                    <span class="nav-text"> Statistik </span>
+                    <span class="nav-text"> Home </span>
                 </a>
             </li>
 
