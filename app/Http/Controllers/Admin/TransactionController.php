@@ -26,8 +26,8 @@ class TransactionController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_type' => 'required|in:perorangan,pt',
-            'company_name' => 'required_if:customer_type,pt|nullable|string|max:255',
+            'customer_type' => 'nullable|in:perorangan,pt',
+            'company_name' => 'nullable|string|max:255',
             'region_id' => 'required|exists:regions,id',
             'capital_cost' => 'required|numeric|min:0',
             'selling_price' => 'required|numeric|min:0',
@@ -56,8 +56,8 @@ class TransactionController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_type' => 'required|in:perorangan,pt',
-            'company_name' => 'required_if:customer_type,pt|nullable|string|max:255',
+            'customer_type' => 'nullable|in:perorangan,pt',
+            'company_name' => 'nullable|string|max:255',
             'region_id' => 'required|exists:regions,id',
             'capital_cost' => 'required|numeric|min:0',
             'selling_price' => 'required|numeric|min:0',

@@ -11,7 +11,7 @@ class Transaction extends Model
         'nopol', 'vehicle_type', 'year', 'frame_number',
         'engine_number', 'stnk_received', 'plat_received', 'transaction_date',
         'capital_cost', 'selling_price', 'profit', 'region_id', 'bpkb_received',
-        'bpkb_date', 'status', 'evidence_image'
+        'bpkb_date', 'no_bpkb', 'status', 'evidence_image'
     ];
 
     public function region()

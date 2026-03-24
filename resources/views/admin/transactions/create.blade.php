@@ -135,6 +135,10 @@
                                     <label class="form-label-premium"><i class="ri-engine-line text-primary"></i> Nomor Mesin</label>
                                     <input type="text" name="engine_number" class="form-control form-control-premium text-uppercase" placeholder="Masukkan No. Mesin">
                                 </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label-premium"><i class="ri-book-2-line text-primary"></i> Nomor BPKB</label>
+                                    <input type="text" name="no_bpkb" class="form-control form-control-premium text-uppercase" placeholder="Masukkan No. BPKB">
+                                </div>
                             </div>
                         </div>
                     </div>

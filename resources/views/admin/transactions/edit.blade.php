@@ -81,6 +81,10 @@
                                     <label class="form-label-premium">No. Mesin</label>
                                     <input type="text" name="engine_number" class="form-control form-control-premium" value="{{ $transaction->engine_number }}">
                                 </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label-premium">No. BPKB</label>
+                                    <input type="text" name="no_bpkb" class="form-control form-control-premium" value="{{ $transaction->no_bpkb }}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,10 +179,10 @@
     }
 
     regionSelect.addEventListener('change', function() {
-        if(confirm('Ubah modal otomatis berdasarkan wilayah?')) {
-            modalInput.value = this.options[this.selectedIndex].getAttribute('data-price');
-            calculateProfit();
-        }
+        modalInput.value = this.options[this.selectedIndex].getAttribute('data-price');
+        calculateProfit();
+        modalInput.classList.add('bg-warning-subtle');
+        setTimeout(() => modalInput.classList.remove('bg-warning-subtle'), 500);
     });
 
     modalInput.addEventListener('input', calculateProfit);
