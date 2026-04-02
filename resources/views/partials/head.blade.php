@@ -14,5 +14,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/metismenu.css') }}">
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
 </head>

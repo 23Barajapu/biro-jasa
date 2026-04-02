@@ -164,7 +164,6 @@
                 <div class="col-lg-12">
                     <div class="main-wrapper">
                         <p>© Copyright 2024. All Rights Reserved by <a href="#">Biro Jasa Mahkota</a></p>
-
                     </div>
                 </div>
             </div>
