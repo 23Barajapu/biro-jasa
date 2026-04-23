@@ -72,14 +72,14 @@
 
             <li class="menu-title">Operasional</li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('transactions.index') }}">
                     <span class="nav-icon">
                         <i class="ri-shopping-cart-2-line"></i>
                     </span>
                     <span class="nav-text">Pesanan</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/transactions') }}">
@@ -91,11 +91,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/admin/customers-list') }}">
+                <a class="nav-link" href="{{ route('transactions.report') }}">
                     <span class="nav-icon">
-                        <i class="ri-team-line"></i>
+                        <i class="ri-file-chart-line"></i>
                     </span>
-                    <span class="nav-text">Data Pelanggan</span>
+                    <span class="nav-text">Laporan Transaksi</span>
                 </a>
             </li>
 

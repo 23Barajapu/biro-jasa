@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-phone"></i>
                 <div class="information">
                     <span>Call Now</span>
-                    <a href="tel:+628123456789" class="number">+62 812-3456-789</a>
+                    <a href="tel:+628123456789" class="number">+62 881 0233 33977</a>
 
                 </div>
             </div>

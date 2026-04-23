@@ -46,6 +46,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     // Transaction/Customer Management
     Route::resource('transactions', TransactionController::class);
+    Route::get('laporan-transaksi', [TransactionController::class, 'report'])->name('transactions.report');
+    Route::get('laporan-transaksi/print', [TransactionController::class, 'printReport'])->name('transactions.print-report');
     Route::get('transactions/{transaction}/invoice', [TransactionController::class, 'invoice'])->name('transactions.invoice');
     Route::post('transactions/{transaction}/upload-evidence', [TransactionController::class, 'uploadEvidence'])->name('transactions.upload-evidence');
 

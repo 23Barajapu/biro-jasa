@@ -16,6 +16,18 @@ class TransactionController extends Controller
         return view('admin.transactions.index', compact('transactions'));
     }
 
+    public function report()
+    {
+        $transactions = Transaction::with('region')->where('status', 'completed')->orderBy('transaction_date', 'desc')->get();
+        return view('admin.transactions.report', compact('transactions'));
+    }
+
+    public function printReport()
+    {
+        $transactions = Transaction::with('region')->where('status', 'completed')->orderBy('transaction_date', 'desc')->get();
+        return view('admin.transactions.report-print', compact('transactions'));
+    }
+
     public function create()
     {
         $regions = Region::all();

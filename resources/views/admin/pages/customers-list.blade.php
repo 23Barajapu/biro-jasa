@@ -77,366 +77,57 @@
                     <table class="table align-middle text-nowrap table-hover table-centered mb-0">
                         <thead class="bg-light-subtle">
                         <tr>
-                            <th style="width: 20px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck1" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck1"></label>
-                                </div>
-                            </th>
-                            <th>Customer Photo &amp; Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Property Type</th>
-                            <th>Interested Properties</th>
-                            <th>Status</th>
-                            <th>Last Contacted</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Perusahaan / Tipe</th>
+                            <th>Total Transaksi</th>
+                            <th>Total Profit</th>
+                            <th>Interaksi Terakhir</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @forelse($customers as $customer)
                         <tr>
                             <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="avatar-sm bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                                        {{ strtoupper(substr($customer->customer_name, 0, 1)) }}
+                                    </div>
+                                    <div>
+                                        <span class="text-dark fw-medium fs-15">{{ $customer->customer_name }}</span>
+                                    </div>
                                 </div>
                             </td>
                             <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-2.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Daavid
-                                            Nummi</a>
-                                    </div>
-                                </div>
+                                {{ $customer->customer_type == 'pt' ? ($customer->company_name ?: 'PT (Nama tidak diisi)') : 'Perorangan' }}
                             </td>
-                            <td>daavidnumminen@teleworm.us</td>
-                            <td>+231 06-75820711</td>
-                            <td>Residential</td>
-                            <td>123 Maple St, 456 Oak Ave</td>
-                            <td>Interested</td>
-                            <td>15/03/2023</td>
+                            <td>
+                                <span class="badge bg-info-subtle text-info px-2 py-1 fs-13">{{ $customer->total_transactions }} Transaksi</span>
+                            </td>
+                            <td>
+                                <span class="fw-bold text-success">Rp {{ number_format($customer->total_profit, 0, ',', '.') }}</span>
+                            </td>
+                            <td>{{ \Carbon\Carbon::parse($customer->last_contacted)->format('d/m/Y') }}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
+                                    <a class="btn btn-light btn-sm" href="{{ route('transactions.index') }}?search={{ urlencode($customer->customer_name) }}" title="Lihat Riwayat Transaksi">
                                         <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
                                     </a>
                                 </div>
                             </td>
                         </tr>
+                        @empty
                         <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-3.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Sinikka
-                                            Penttinen</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>sinikkapenttinen@dayrep.com</td>
-                            <td>+231 47-23456789</td>
-                            <td>Commercial</td>
-                            <td>789 Pine Blvd</td>
-                            <td>Under Review</td>
-                            <td>20/03/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
+                            <td colspan="6" class="text-center py-4 text-muted">Belum ada pelanggan.</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-4.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Jere
-                                            Palmu</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>jerepalmu@rhyta.com</td>
-                            <td>+231 73-34567890</td>
-                            <td>Residential</td>
-                            <td>101 Birch Ct, 202 Cedar Ln</td>
-                            <td>Follow-up</td>
-                            <td>25/03/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-5.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Ulla
-                                            Nuorela</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>ullanuorela@rhyta.com</td>
-                            <td>+231 45-45678901</td>
-                            <td>Residential</td>
-                            <td>303 Elm St</td>
-                            <td>Interested</td>
-                            <td>05/04/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-6.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Tiia
-                                            Karppinen</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>tiiakarppinen@teleworm.us</td>
-                            <td>+231 16-56789012</td>
-                            <td>Industrial</td>
-                            <td>404 Walnut Rd</td>
-                            <td>Follow-up</td>
-                            <td>12/04/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-7.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Harland
-                                            R. Orsini</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>harlandrorsini@dayrep.com</td>
-                            <td>+231 82-67890123</td>
-                            <td>Residential</td>
-                            <td>505 Spruce St</td>
-                            <td>Interested</td>
-                            <td>15/04/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-8.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">David
-                                            Padgett</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>davidpadgett@armyspy.com</td>
-                            <td>+231 92-78901234</td>
-                            <td>Commercial</td>
-                            <td>606 Fir Ave</td>
-                            <td>Under Review</td>
-                            <td>18/04/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="customCheck2" type="checkbox"/>
-                                    <label class="form-check-label" for="customCheck2"> </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <img alt="" class="avatar-sm rounded-circle"
-                                             src="{{ asset('assets/admin') }}/images/users/avatar-9.jpg"/>
-                                    </div>
-                                    <div>
-                                        <a class="text-dark fw-medium fs-15" href="#!">Valerie
-                                            Obrien</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>valerieobrien@dayrep.com</td>
-                            <td>+231 82-89012345</td>
-                            <td>Residential</td>
-                            <td>808 Willow Dr, 909 Aspen Ln</td>
-                            <td>Interested</td>
-                            <td>20/04/2023</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a class="btn btn-light btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18" icon="solar:eye-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-primary btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:pen-2-broken"></iconify-icon>
-                                    </a>
-                                    <a class="btn btn-soft-danger btn-sm" href="#!">
-                                        <iconify-icon class="align-middle fs-18"
-                                                      icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
                 <!-- end table-responsive -->
             </div>
-            <div class="card-footer">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end mb-0">
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-                    </ul>
-                </nav>
+            <div class="card-footer pb-0">
+                {{ $customers->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

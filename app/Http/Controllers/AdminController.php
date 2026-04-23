@@ -27,6 +27,22 @@ class AdminController extends Controller
                     'totalRegions' => Region::count(),
                     'recentTransactions' => Transaction::with('region')->orderBy('created_at', 'desc')->take(5)->get(),
                 ];
+            } elseif ($page === 'customers-list') {
+                $customers = Transaction::selectRaw('
+                        customer_name, 
+                        MAX(customer_type) as customer_type, 
+                        MAX(company_name) as company_name, 
+                        MAX(transaction_date) as last_contacted, 
+                        COUNT(id) as total_transactions, 
+                        SUM(profit) as total_profit
+                    ')
+                    ->groupBy('customer_name')
+                    ->orderBy('last_contacted', 'desc')
+                    ->paginate(20);
+                    
+                $data = [
+                    'customers' => $customers
+                ];
             }
             return view($viewPath, $data);
         }

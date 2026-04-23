@@ -1,6 +1,6 @@
 @extends('admin.layouts.vertical')
 
-@section('title', 'Daftar Transaksi Premium')
+@section('title', 'Laporan Transaksi Selesai')
 
 @section('extra_css')
 <style>
@@ -58,11 +58,11 @@
     <div class="col-12">
         <div class="d-md-flex align-items-center justify-content-between">
             <div>
-                <h3 class="fw-bold text-dark">Monitoring Transaksi BJ Mahkota</h3>
-                <p class="text-muted">Kelola dan pantau semua data pelanggan secara real-time.</p>
+                <h3 class="fw-bold text-dark">Laporan Transaksi Selesai</h3>
+                <p class="text-muted">Rekapitulasi transaksi yang sudah berstatus selesai (completed).</p>
             </div>
-            <a href="{{ route('transactions.create') }}" class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm">
-                <i class="ri-add-circle-line me-1"></i> Data Pelanggan Baru
+            <a href="{{ route('transactions.print-report') }}" target="_blank" class="btn btn-outline-primary btn-lg rounded-pill px-4 shadow-sm">
+                <i class="ri-printer-line me-1"></i> Cetak Laporan
             </a>
         </div>
     </div>
@@ -127,7 +127,6 @@
                             <th class="text-primary">PROFIT</th>
                             <th>WILAYAH</th>
                             <th>BUKTI</th>
-                            <th class="text-center">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -178,33 +177,10 @@
                                             <i class="ri-eye-line me-1"></i> Lihat
                                         </a>
                                     @else
-                                        <button class="btn btn-sm btn-warning rounded-pill px-3 text-white" data-bs-toggle="modal" data-bs-target="#uploadModal{{ $item->id }}">
-                                            <i class="ri-upload-cloud-2-line me-1"></i> Upload
-                                        </button>
+                                        <span class="badge bg-secondary">Tidak ada</span>
                                     @endif
                                 </td>
-                                <td class="text-center">
-                                    <div class="dropdown">
-                                        <button class="btn btn-soft-secondary btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="ri-more-2-fill"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
-                                            <li><a class="dropdown-item py-2" href="{{ route('transactions.edit', $item->id) }}"><i class="ri-edit-2-line me-2 text-primary"></i> Edit Data</a></li>
-                                            <li><a class="dropdown-item py-2" href="{{ route('transactions.invoice', $item->id) }}" target="_blank"><i class="ri-printer-line me-2 text-info"></i> Cetak Invoice</a></li>
-                                            <li><hr class="dropdown-divider opacity-50"></li>
-                                            <li>
-                                                <a href="#" class="dropdown-item py-2 text-danger" onclick="event.preventDefault(); if(confirm('Hapus transaksi ini?')) { document.getElementById('delete-form-{{$item->id}}').submit(); }">
-                                                    <i class="ri-delete-bin-line me-2"></i> Hapus
-                                                </a>
-                                                <form id="delete-form-{{$item->id}}" action="{{ route('transactions.destroy', $item->id) }}" method="POST" class="d-none">
-                                                    @csrf @method('DELETE')
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
                             </tr>
-
 
                         @empty
                             <tr>
@@ -224,33 +200,6 @@
     </div>
 </div>
 
-@foreach($transactions as $item)
-    @if(!$item->evidence_image)
-    <div class="modal fade" id="uploadModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <form action="{{ route('transactions.upload-evidence', $item->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-                    <div class="modal-header border-0 pb-0">
-                        <h5 class="fw-bold">Unggah Bukti Proses</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body p-4 text-center">
-                        <div class="mb-3 bg-light rounded-circle d-inline-flex p-4 text-primary">
-                            <i class="ri-image-add-line fs-40"></i>
-                        </div>
-                        <p class="text-muted px-4">Pilih gambar bukti untuk pelanggan <b>{{ $item->customer_name }}</b>. Maksimal ukuran file 2MB.</p>
-                        <input type="file" name="evidence_image" class="form-control form-control-lg border-2" accept="image/*" required>
-                    </div>
-                    <div class="modal-footer border-0 pt-0 pb-4 justify-content-center">
-                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm">Simpan Bukti</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    @endif
-@endforeach
+
 
 @endsection

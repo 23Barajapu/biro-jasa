@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="content">
                                             <span>Phone:</span>
-                                            <a href="tel:+628123456789">+62 812-3456-789</a>
+                                            <a href="tel:+628123456789">+62 881 0233 33977</a>
 
                                         </div>
 
