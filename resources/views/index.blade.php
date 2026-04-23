@@ -47,7 +47,6 @@
             </div>
         </div>
         <!-- header mid area end -->
-
     </header>
     <!-- tpm-header-area end -->
 
@@ -76,7 +75,7 @@
 
                                             <div class="button-area-banner-one">
                                                 <a href="#service" class="tmp-btn btn-primary">Lihat Layanan</a>
-                                                <a href="#about" class="tmp-btn btn-secondary-outline" style="margin-left: 15px; border: 2px solid #fff; color: #fff; padding: 12px 30px; border-radius: 5px; text-decoration: none; transition: 0.3s;">Tentang Kami</a>
+                                                <a href="#about" class="tmp-btn btn-secondary-outline" style="margin-left: 15px; border: 2px solid #fff; color: #fff; padding: 12px 30px; border-radius: 10px; text-decoration: none; transition: 0.3s; font-family: 'Inter', sans-serif; font-weight: 600;">Tentang Kami</a>
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +103,7 @@
 
                                              <div class="button-area-banner-one">
                                                 <a href="#service" class="tmp-btn btn-primary">Lihat Layanan</a>
-                                                <a href="#about" class="tmp-btn btn-secondary-outline" style="margin-left: 15px; border: 2px solid #fff; color: #fff; padding: 12px 30px; border-radius: 5px; text-decoration: none; transition: 0.3s;">Tentang Kami</a>
+                                                <a href="#about" class="tmp-btn btn-secondary-outline" style="margin-left: 15px; border: 2px solid #fff; color: #fff; padding: 12px 30px; border-radius: 10px; text-decoration: none; transition: 0.3s; font-family: 'Inter', sans-serif; font-weight: 600;">Tentang Kami</a>
                                              </div>
                                          </div>
                                      </div>
@@ -124,50 +123,80 @@
     <!-- Tpm About Area Start  -->
     <div class="about-area tmp-section-gap about-style-one" id="about">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
+                <!-- Left Column: Document Requirement Cards -->
                 <div class="col-lg-6">
-                    <div class="about-thumbnails">
-                        <div class="thumbnail">
-                            <img src="{{ asset('assets/images/about/01.png') }}" alt="Biro_Jasa_Mahkota">
+                    <div class="syarat-dokumen-wrapper">
 
-                            <div class="image-two">
-                                <img src="{{ asset('assets/images/about/03.png') }}" alt="Biro_Jasa_Mahkota">
-                            </div>
-
-                            <div class="image-three animated">
-                                <img class="" src="{{ asset('assets/images/about/02.png') }}" alt="Biro_Jasa_Mahkota">
-                            </div>
-
-                            <div class="square"></div>
-
-                            <div class="flower">
-                                <img src="{{ asset('assets/images/about/flower.png') }}" alt="Biro_Jasa_Mahkota">
-                            </div>
-
-                            <div class="product-share">
-                                <div class="rating">
-                                    <div class="number">4.8</div>
-                                    <div class="stars-group">
-                                        <div class="star">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                        </div>
-                                    </div>
+                        {{-- Kartu 1: Balik Nama --}}
+                        <div class="syarat-card" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                            <div class="syarat-card-header">
+                                <div class="syarat-icon">
+                                    <i class="fa-light fa-user-gear"></i>
                                 </div>
-                                <div class="profile-share">
-                                    <a href="#" class="avatar" data-tooltip="Pelanggan Puas" tabindex="0"><img src="{{ asset('assets/images/about/4.png') }}" alt="Biro_Jasa_Mahkota"></a>
-                                    <a href="#" class="avatar" data-tooltip="Pelanggan Puas" tabindex="0"><img src="{{ asset('assets/images/about/5.png') }}" alt="Biro_Jasa_Mahkota"></a>
-                                     <a href="#" class="avatar" data-tooltip="Pelanggan Puas" tabindex="0"><img src="{{ asset('assets/images/about/6.png') }}" alt="Biro_Jasa_Mahkota"></a>
-                                    <a href="#" class="avatar" data-tooltip="Pelanggan Puas" tabindex="0"><img src="{{ asset('assets/images/about/7.png') }}" alt="Biro_Jasa_Mahkota"></a>
+                                <h5>Balik Nama</h5>
+                                <span class="syarat-badge">Wajib</span>
+                            </div>
+                            <ul class="syarat-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Fotokopi KTP pemilik baru</li>
+                                <li><i class="fa-solid fa-circle-check"></i> BPKB asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> STNK asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Kuitansi jual beli bermaterai</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Hasil cek fisik kendaraan</li>
+                            </ul>
+                        </div>
+
+                        {{-- Kartu 2: BBN Mandiri --}}
+                        <div class="syarat-card" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                            <div class="syarat-card-header">
+                                <div class="syarat-icon">
+                                    <i class="fa-light fa-id-card"></i>
                                 </div>
+                                <h5>BBN Mandiri (Perorangan)</h5>
+                                <span class="syarat-badge">Wajib</span>
+                            </div>
+                            <ul class="syarat-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Fotokopi KTP pemilik</li>
+                                <li><i class="fa-solid fa-circle-check"></i> BPKB asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> STNK asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Kuitansi jual beli bermaterai</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Formulir permohonan BBN</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Hasil cek fisik kendaraan</li>
+                            </ul>
+                        </div>
+
+                        {{-- Kartu 3: PT / Badan Usaha --}}
+                        <div class="syarat-card syarat-card--pt" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                            <div class="syarat-card-header">
+                                <div class="syarat-icon">
+                                    <i class="fa-light fa-building"></i>
+                                </div>
+                                <h5>PT / Badan Usaha</h5>
+                                <span class="syarat-badge">Korporat</span>
+                            </div>
+                            <ul class="syarat-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Fotokopi KTP penanggung jawab</li>
+                                <li><i class="fa-solid fa-circle-check"></i> BPKB asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> STNK asli + fotokopi</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Kuitansi jual beli bermaterai</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Fotokopi NPWP perusahaan</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Fotokopi SIUP / NIB / Akta Perusahaan</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Hasil cek fisik kendaraan</li>
+                            </ul>
+                            <div class="syarat-tambahan">
+                                <div class="syarat-tambahan-label">
+                                    <i class="fa-solid fa-file-signature"></i>
+                                    <span>Dokumen Tambahan:</span>
+                                </div>
+                                <p>Surat Kuasa bermaterai dari Direktur / Pimpinan Perusahaan (jika diwakilkan)</p>
                             </div>
                         </div>
+
                     </div>
                 </div>
-                 <div class="col-lg-6">
+
+                <!-- Right Column: About Info -->
+                <div class="col-lg-6">
                     <div class="about-inner">
                         <div class="section-head text-align-left section-head-one-side">
                             <div class="section-sub-title">
@@ -177,35 +206,49 @@
                             <h2 class="title split-collab">Pilihan Tepat Untuk <br> Mengurus Dokumen Kendaraan</h2>
                         </div>
 
+                        <!-- Statistics Badges -->
+                        <div class="stats-badges-row" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                            <div class="stat-badge">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Pelanggan<br>Puas</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Tahun<br>Pengalaman</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-number">4</span>
+                                <span class="stat-label">Jenis<br>Layanan</span>
+                            </div>
+                            <div class="stat-badge">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Tingkat<br>Kepuasan</span>
+                            </div>
+                        </div>
 
                         <p class="description" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                             Biro Jasa Mahkota hadir memberikan kemudahan bagi Anda dalam mengurus segala kebutuhan administrasi kendaraan bermotor. Dengan pengalaman bertahun-tahun, kami menjamin keamanan, kecepatan, dan kepuasan pelanggan dalam setiap layanan kami.
                         </p>
 
                         <!-- Keunggulan Kami -->
-                         <div class="single-progress-area progress-stye-one" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                        <div class="single-progress-area progress-stye-one" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
                             <div class="progress-top">
                                 <p class="name">Kepuasan Pelanggan</p>
-                                <span class="parcent">
-                                    95%
-                                </span>
+                                <span class="parcent">95%</span>
                             </div>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
-                         <div class="single-progress-area progress-stye-one" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+                        <div class="single-progress-area progress-stye-one" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                             <div class="progress-top">
                                 <p class="name">Kecepatan Proses</p>
-                                <span class="parcent">
-                                    90%
-                                </span>
+                                <span class="parcent">90%</span>
                             </div>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft bg--primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
-
 
                         <div class="thumbnail-with-title" data-sal-delay="350" data-sal="slide-up" data-sal-duration="800">
                             <div class="thumbnail">
@@ -229,13 +272,12 @@
          <div class="container">
             <div class="row">
                 <div class="col-lg-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    <div class="section-head">
-                        <div class="section-sub-title center-title">
+                    <div class="section-head" style="text-align:center; margin-bottom: 50px;">
+                        <div class="section-sub-title center-title" style="justify-content:center;">
                             <img src="{{ asset('assets/images/services/section-custom-menubar.png') }}" alt="Biro_Jasa_Mahkota_Services">
                             <span>LAYANAN KAMI</span>
                         </div>
-                        <h2 class="title split-collab">Layanan Terpercaya Kami</h2>
-
+                        <h2 class="title split-collab" style="color:#fff;">Layanan Terpercaya Kami</h2>
                     </div>
                 </div>
             </div>
@@ -249,7 +291,7 @@
                             </div>
                             <div class="content">
                                 <h5 class="title">STNK</h5>
-                                <p class="description">Perpanjangan STNK Tahunan & 5 Tahunan dengan proses cepat.</p>
+                                <p class="description">Perpanjangan STNK Tahunan &amp; 5 Tahunan dengan proses cepat.</p>
                             </div>
                         </div>
                     </div>
@@ -277,7 +319,7 @@
                             </div>
                             <div class="content">
                                 <h5 class="title">Balik Nama</h5>
-                                <p class="description">Proses Balik Nama (BBN) kendaraan bermotor aman & resmi.</p>
+                                <p class="description">Proses Balik Nama (BBN) kendaraan bermotor aman &amp; resmi.</p>
                             </div>
                         </div>
                     </div>
@@ -300,7 +342,47 @@
 
          </div>
     </div>
+    <!-- Tmp services area end -->
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/628123456789?text=Halo%20Biro%20Jasa%20Mahkota%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20Anda."
+       class="floating-whatsapp"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Hubungi kami via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-text">Hubungi Kami</span>
+    </a>
+
+    <!-- Subtle Admin Login Button (bottom-left, for admin only) -->
+    <a href="{{ route('login') }}"
+       title="Admin"
+       style="
+           position: fixed;
+           bottom: 32px;
+           left: 32px;
+           z-index: 9999;
+           display: flex;
+           align-items: center;
+           gap: 7px;
+           background: #2d2d3a;
+           color: #aaa;
+           text-decoration: none;
+           padding: 10px 16px;
+           border-radius: 50px;
+           font-size: 12px;
+           font-family: 'Inter', sans-serif;
+           font-weight: 500;
+           letter-spacing: 0.3px;
+           opacity: 0.28;
+           box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+           transition: opacity 0.3s ease, transform 0.3s ease;
+       "
+       onmouseover="this.style.opacity='0.85'; this.style.transform='translateY(-2px)'; this.style.color='#fff';"
+       onmouseout="this.style.opacity='0.28'; this.style.transform='translateY(0)'; this.style.color='#aaa';">
+        <i class="fa-solid fa-lock" style="font-size:12px;"></i>
+        <span>Admin</span>
+    </a>
 
     @include('partials.footer')
 
