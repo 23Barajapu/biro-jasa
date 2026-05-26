@@ -8,7 +8,7 @@ try {
     if (!file_exists($envPath)) {
         $envContent = "APP_NAME=Laravel\n"
             . "APP_ENV=production\n"
-            . "APP_KEY=\n"
+            . "APP_KEY=base64:YBhoVvXCFpUA300cZoIPmp1vOizpTs/rM8oNBlph34g=\n"
             . "APP_DEBUG=false\n"
             . "APP_TIMEZONE=UTC\n"
             . "APP_URL=https://bjmahkota.com\n\n"
