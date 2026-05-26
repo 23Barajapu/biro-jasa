@@ -15,22 +15,27 @@ $envFile = $basePath . '/.env';
 $envExample = $basePath . '/.env.example';
 
 if (!file_exists($envFile)) {
-    if (file_exists($envExample)) {
-        copy($envExample, $envFile);
-        
-        // Update .env dengan config production
-        $env = file_get_contents($envFile);
-        $env = preg_replace('/DB_CONNECTION=.*/', 'DB_CONNECTION=mysql', $env);
-        $env = preg_replace('/# DB_HOST=.*/', 'DB_HOST=localhost', $env);
-        $env = preg_replace('/# DB_PORT=.*/', 'DB_PORT=3306', $env);
-        $env = preg_replace('/# DB_DATABASE=.*/', 'DB_DATABASE=u736513754_bjmahkota', $env);
-        $env = preg_replace('/# DB_USERNAME=.*/', 'DB_USERNAME=u736513754_bjmahkota_admi', $env);
-        $env = preg_replace('/# DB_PASSWORD=.*/', 'DB_PASSWORD=', $env);
-        $env = preg_replace('/APP_ENV=.*/', 'APP_ENV=production', $env);
-        $env = preg_replace('/APP_DEBUG=.*/', 'APP_DEBUG=true', $env);
-        $env = preg_replace('/APP_URL=.*/', 'APP_URL=https://bjmahkota.com', $env);
-        file_put_contents($envFile, $env);
-    }
+    $envContent = "APP_NAME=Laravel\n"
+        . "APP_ENV=production\n"
+        . "APP_KEY=\n"
+        . "APP_DEBUG=false\n"
+        . "APP_URL=https://bjmahkota.com\n\n"
+        . "LOG_CHANNEL=stack\n"
+        . "LOG_LEVEL=debug\n\n"
+        . "DB_CONNECTION=mysql\n"
+        . "DB_HOST=localhost\n"
+        . "DB_PORT=3306\n"
+        . "DB_DATABASE=u736513754_bjmahkota\n"
+        . "DB_USERNAME=u736513754_bjmahkota_admi\n"
+        . "DB_PASSWORD=\n\n"
+        . "BROADCAST_CONNECTION=log\n"
+        . "CACHE_STORE=database\n"
+        . "FILESYSTEM_DISK=local\n"
+        . "QUEUE_CONNECTION=database\n"
+        . "SESSION_DRIVER=database\n"
+        . "SESSION_LIFETIME=120\n";
+    file_put_contents($envFile, $envContent);
+    echo ">> File .env berhasil dibuat dari template hardcode.\n";
 }
 
 // Bootstrap Laravel
