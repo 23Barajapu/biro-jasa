@@ -73,7 +73,7 @@ Route::get('/run-link', function () {
             return "Symlink berhasil dibuat dari $target ke $shortcut !";
         }
         return "Gagal membuat symlink (fungsi mengembalikan false).";
-    } catch (\Exception $e) {
+    } catch (\Throwable $e) {
         return "Error: " . $e->getMessage();
     }
 });
