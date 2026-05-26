@@ -5,7 +5,7 @@
  */
 
 // Keamanan sederhana
-if ($_GET['key'] ?? '' !== 'deploy2026secret') {
+if (($_GET['key'] ?? '') !== 'deploy2026secret') {
     die('Akses ditolak.');
 }
 
