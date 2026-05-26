@@ -15,6 +15,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
+use Illuminate\Support\Facades\Artisan;
+
 echo "<pre style='background:#1a1a2e;color:#e0e0e0;padding:20px;font-size:14px;'>";
 echo "=== SETUP LARAVEL ===\n\n";
 
