@@ -38,12 +38,8 @@ try {
     Illuminate\Support\Facades\Artisan::call('config:clear');
     echo Illuminate\Support\Facades\Artisan::output() . "\n";
 
-    echo "2. Generating Application Key...\n";
-    Illuminate\Support\Facades\Artisan::call('key:generate');
-    echo Illuminate\Support\Facades\Artisan::output() . "\n";
-
-    echo "3. Re-caching Config...\n";
-    Illuminate\Support\Facades\Artisan::call('config:cache');
+    echo "2. Clearing Application Cache...\n";
+    Illuminate\Support\Facades\Artisan::call('cache:clear');
     echo Illuminate\Support\Facades\Artisan::output() . "\n";
     
     echo "=== SELESAI ===\n";
