@@ -58,3 +58,23 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // Contoh: /admin/dashboard-agent, /admin/property-grid, dll
     Route::get('/{page}', [AdminController::class, 'showPage'])->name('admin.page');
 });
+
+// Route sementara untuk generate storage link
+Route::get('/run-link', function () {
+    $target = storage_path('app/public');
+    $shortcut = public_path('storage');
+    
+    if (file_exists($shortcut)) {
+        return "Storage directory atau symlink sudah ada di: " . $shortcut;
+    }
+    
+    try {
+        if (symlink($target, $shortcut)) {
+            return "Symlink berhasil dibuat dari $target ke $shortcut !";
+        }
+        return "Gagal membuat symlink (fungsi mengembalikan false).";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
+
